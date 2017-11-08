@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var xhr = new XMLHttpRequest()
+
+        xhr.onreadystatechange = function () {
+            if (this.readyState != 4) return;
+            // var result = JSON.parse(this.response)
+            console.log(this.response);
+        }
+        xhr.open('GET','test.php')
+        xhr.send()
+        xhr.responseType = "json"
+        console.log(xhr);
+
+        // readyState属性：
+
+        //     readyState只有5个值{0，1，2，3，4}，只读不能写。
+
+        //     0: XMLHttpRequest对象创建完成。————还没有调用open()方法
+
+        //     1: XMLHttpRequest对象初始化完成。——————已调用send()方法,正在发送请求
+
+        //     2: 请求已经发送。——————send()方法完成,已经收到全部响应 内容
+
+        //     3: 服务器已经返回了数据（但是还没有被解析，可能只一段http报文）。————正在解析响应内容
+
+        //     4: 数据解析已经完成。————响应内容解析完成,可以在客户端调用了
+        //     数据解析完成之后会返回一个http的状态码，通过XMLHttpRequest.status获得该值，判断是否为200，判断是否请求成功。
+
+
+
+        //     onreadystatechange事件：
+            // 每当readyState属性值改变时，就会触发 onreadystatechange 事件。——通过监听onreadystatechange事件,来判断请求的状态。
+
+
+    </script>
+</body>
+</html>
